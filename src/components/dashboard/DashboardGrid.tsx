@@ -43,7 +43,7 @@ function QubitGrid({ nodes }: { nodes: MeshNode[] }) {
 
   return (
     <div className="bg-surface border border-border rounded-lg p-4">
-      <h3 className="text-sm font-medium text-foreground/60 mb-3">Mesh Qubit Map</h3>
+      <h3 className="text-sm font-medium text-foreground/60 mb-3">Mesh Node Grid</h3>
       <div className="grid grid-cols-8 gap-1.5">
         {nodes.slice(0, 64).map((node) => (
           <div
@@ -66,10 +66,10 @@ function QubitGrid({ nodes }: { nodes: MeshNode[] }) {
 
 function RecentJobs() {
   const jobs = [
-    { id: "qj-001", circuit: "Bell State", qubits: 2, status: "completed", time: "0.3s" },
+    { id: "qj-001", circuit: "Route Optimization", qubits: 3, status: "completed", time: "0.9s" },
     { id: "qj-002", circuit: "Grover Search", qubits: 4, status: "running", time: "—" },
-    { id: "qj-003", circuit: "QFT 8-qubit", qubits: 8, status: "queued", time: "—" },
-    { id: "qj-004", circuit: "VQE H2", qubits: 4, status: "completed", time: "1.2s" },
+    { id: "qj-003", circuit: "Binary Allocation", qubits: 8, status: "queued", time: "—" },
+    { id: "qj-004", circuit: "Quantum Clustering", qubits: 4, status: "completed", time: "0.8s" },
   ];
 
   const statusStyle = {
@@ -122,10 +122,10 @@ export function DashboardGrid() {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-4 gap-4">
-        <StatCard label="Total Qubits" value={String(nodes.length)} sub="mesh nodes as qubits" />
+        <StatCard label="Active Solvers" value={String(nodes.length)} sub="mesh nodes online" />
         <StatCard label="Online" value={String(onlineCount)} sub={`${busyCount} busy`} color="text-success" />
-        <StatCard label="Avg Fidelity" value={`${(avgFidelity * 100).toFixed(1)}%`} sub="gate fidelity" color="text-warning" />
-        <StatCard label="Circuits Run" value="4" sub="today" />
+        <StatCard label="Engine Reliability" value={`${(avgFidelity * 100).toFixed(1)}%`} sub="solver accuracy" color="text-warning" />
+        <StatCard label="Jobs Solved" value="4" sub="today" />
       </div>
       <div className="grid grid-cols-2 gap-4">
         <QubitGrid nodes={nodes} />

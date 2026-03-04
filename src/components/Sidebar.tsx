@@ -23,7 +23,7 @@ export function Sidebar() {
           <span className="text-foreground/60">Quantum</span>
         </h1>
         <p className="text-xs text-foreground/40 mt-0.5 font-mono">
-          Human Interaction Layer
+          Quantum Engine
         </p>
       </div>
 
@@ -53,7 +53,7 @@ export function Sidebar() {
           <span className="font-mono">mesh:11436</span>
         </div>
         <p className="text-[10px] text-foreground/25 mt-1 font-mono">
-          v0.1.0 — QPanda + TARX Mesh
+          v1.0.0 — TARX Quantum Engine
         </p>
       </div>
     </aside>

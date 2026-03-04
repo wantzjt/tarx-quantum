@@ -11,82 +11,63 @@ interface Message {
 }
 
 const SUGGESTIONS = [
-  "Create a Bell state between node-000 and node-001",
-  "Run Grover search across 4 mesh nodes",
-  "Teleport state from node-005 to node-012",
-  "Show me a QFT on 3 qubits",
-  "What circuits can I run on 2 nodes?",
-  "Explain quantum entanglement in the mesh context",
+  "Optimize my delivery routes across 8 locations",
+  "Search 1024 items for the optimal match",
+  "Cluster these customer segments",
+  "Solve this binary allocation problem",
+  "Classify this dataset with quantum kernels",
 ];
 
 function parseQuantumIntent(input: string): Message {
   const lower = input.toLowerCase();
   const now = new Date().toISOString();
 
-  if (lower.includes("bell")) {
+  if (lower.includes("optimi") || lower.includes("route") || lower.includes("schedule") || lower.includes("portfolio")) {
     return {
       role: "system",
-      content: `Preparing Bell State circuit. This will create maximum entanglement between two mesh nodes — their states become perfectly correlated.\n\nCircuit: H(node-0) → CNOT(node-0, node-1)\n\nWhen measured, both nodes will collapse to the same value (|00⟩ or |11⟩) with equal probability. The nodes become a single quantum system regardless of network distance.`,
-      circuit: { name: "Bell State", gates: PRESET_CIRCUITS.bell.gates.map(g => ({ type: g.type, targets: g.targets })) },
+      content: `TARX Optimizer engaged. Routing your problem through QAOA (Quantum Approximate Optimization).\n\nThis solver finds optimal configurations across your variables by exploring solution space with quantum interference — wrong answers cancel out, optimal answers amplify.\n\nSolver: optimize\nEngine: TARX Quantum Engine v1.0\nSubstrate: TARX distributed mesh`,
+      circuit: { name: "QAOA Optimization", gates: PRESET_CIRCUITS.bell.gates.map(g => ({ type: g.type, targets: g.targets })) },
       timestamp: now,
     };
   }
 
-  if (lower.includes("grover") || lower.includes("search")) {
+  if (lower.includes("search") || lower.includes("find") || lower.includes("grover")) {
     return {
       role: "system",
-      content: `Setting up Grover Search circuit. This leverages quantum parallelism across mesh nodes to search an unstructured space in O(√N) vs classical O(N).\n\nThe oracle marks the target state, then amplitude amplification boosts its probability. Each mesh node processes its portion of the search space simultaneously.`,
+      content: `TARX Search engaged. Running Grover's algorithm across mesh nodes.\n\nClassical search: O(N) steps\nTARX Search: O(√N) steps\n\nFor 1024 items, classical needs ~1024 checks. TARX needs ~32. That's a 32x speedup from quantum amplitude amplification.\n\nSolver: search\nEngine: TARX Quantum Engine v1.0`,
       circuit: { name: "Grover Search", gates: PRESET_CIRCUITS.grover2.gates.map(g => ({ type: g.type, targets: g.targets })) },
       timestamp: now,
     };
   }
 
-  if (lower.includes("teleport")) {
+  if (lower.includes("cluster") || lower.includes("segment") || lower.includes("group")) {
     return {
       role: "system",
-      content: `Quantum Teleportation protocol initiated. This transfers quantum state between distant mesh nodes using a pre-shared entangled pair.\n\n1. Nodes 1-2 establish entanglement channel (Bell pair)\n2. Node 0's state is entangled with Node 1\n3. Node 0 and 1 are measured, collapsing the state\n4. Classical correction applied to Node 2\n\nResult: Node 2 now holds Node 0's original state. No data traverses the network — only measurement results.`,
-      circuit: { name: "Teleportation", gates: PRESET_CIRCUITS.teleport.gates.map(g => ({ type: g.type, targets: g.targets })) },
+      content: `TARX Cluster engaged. Running quantum-enhanced K-means across mesh nodes.\n\nQuantum distance computation allows exponentially faster similarity calculations between data points. The mesh distributes the computation across available nodes.\n\nSolver: cluster\nEngine: TARX Quantum Engine v1.0`,
       timestamp: now,
     };
   }
 
-  if (lower.includes("qft") || lower.includes("fourier")) {
+  if (lower.includes("classif") || lower.includes("kernel") || lower.includes("svm") || lower.includes("predict")) {
     return {
       role: "system",
-      content: `Quantum Fourier Transform circuit. Maps computational basis states to frequency domain across mesh nodes. This is the core subroutine in Shor's factoring algorithm and quantum phase estimation.\n\nThe QFT creates superposition with phase relationships between nodes that encode frequency information.`,
-      circuit: { name: "QFT", gates: PRESET_CIRCUITS.qft.gates.map(g => ({ type: g.type, targets: g.targets })) },
+      content: `TARX Classifier engaged. Running Quantum SVM with quantum feature maps.\n\nQuantum kernels map data into exponentially large Hilbert spaces where linear separation becomes possible for complex patterns that classical SVMs can't handle.\n\nSolver: classify\nEngine: TARX Quantum Engine v1.0`,
       timestamp: now,
     };
   }
 
-  if (lower.includes("ghz")) {
+  if (lower.includes("binary") || lower.includes("allocat") || lower.includes("qubo") || lower.includes("combinat")) {
     return {
       role: "system",
-      content: `GHZ (Greenberger-Horne-Zeilinger) state. This extends Bell entanglement to 3+ mesh nodes. All nodes are maximally entangled — measuring any one instantly determines all others.\n\nGHZ states are key for quantum error correction and multi-party quantum protocols across the mesh.`,
-      circuit: { name: "GHZ State", gates: PRESET_CIRCUITS.ghz.gates.map(g => ({ type: g.type, targets: g.targets })) },
-      timestamp: now,
-    };
-  }
-
-  if (lower.includes("what") && lower.includes("circuit")) {
-    return {
-      role: "system",
-      content: `Available circuits for the TARX mesh:\n\n• Bell State (2 nodes) — EPR pair entanglement\n• GHZ State (3+ nodes) — multi-node entanglement\n• Grover Search (2+ nodes) — quantum search\n• QFT (2+ nodes) — Fourier transform\n• Teleportation (3 nodes) — state transfer\n\nYou can also describe any custom circuit and I'll map it to mesh operations.`,
-      timestamp: now,
-    };
-  }
-
-  if (lower.includes("entangle") || lower.includes("explain")) {
-    return {
-      role: "system",
-      content: `In the TARX mesh, entanglement means two or more nodes share a quantum state that cannot be described independently.\n\nMesh mapping:\n• Peer connection = entanglement channel\n• CNOT gate = one node controls state flip of another via mesh query\n• Measurement at node A instantly correlates with node B\n\nThis isn't simulation — the mesh network topology IS the entanglement graph. Node proximity doesn't matter; only peer links determine which nodes can be entangled.`,
+      content: `TARX Binary Optimizer engaged. Running QUBO solver across mesh nodes.\n\nQuadratic Unconstrained Binary Optimization maps your allocation problem to a quantum energy landscape. The solver finds the lowest-energy configuration — your optimal assignment.\n\nSolver: binary\nEngine: TARX Quantum Engine v1.0`,
+      circuit: { name: "QUBO", gates: PRESET_CIRCUITS.bell.gates.map(g => ({ type: g.type, targets: g.targets })) },
       timestamp: now,
     };
   }
 
   return {
     role: "system",
-    content: `I understand you want to: "${input}"\n\nI can map this to mesh quantum operations. Try asking me to:\n• Create specific quantum circuits (Bell, GHZ, Grover, QFT, Teleportation)\n• Execute operations on specific mesh nodes\n• Explain quantum concepts in the mesh context\n\nEvery operation maps 1:1 to mesh node interactions.`,
+    content: `TARX Quantum Engine ready to solve: "${input}"\n\nAvailable solvers:\n• Optimize — routing, scheduling, portfolio optimization\n• Search — find items in O(√N) instead of O(N)\n• Classify — quantum kernel SVM for complex patterns\n• Cluster — quantum-enhanced K-means segmentation\n• Binary — QUBO allocation and combinatorial problems\n\nDescribe your problem and TARX routes it to the right solver.`,
     timestamp: now,
   };
 }
@@ -115,7 +96,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "system",
-      content: "TARX Quantum ready. Describe quantum operations in natural language and I'll map them to mesh node interactions. Each mesh node is a qubit — no simulation layer.",
+      content: "TARX Quantum Engine ready. Describe an optimization, search, classification, or clustering problem and I'll solve it across the mesh.",
       timestamp: new Date().toISOString(),
     },
   ]);
@@ -146,7 +127,7 @@ export default function ChatPage() {
       <header className="p-4 border-b border-border">
         <h1 className="text-lg font-semibold">Chat → Quantum</h1>
         <p className="text-xs text-foreground/40">
-          Natural language to mesh quantum operations
+          Describe your problem. TARX routes it to the right solver.
         </p>
       </header>
 
@@ -190,7 +171,7 @@ export default function ChatPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-            placeholder="Describe a quantum operation..."
+            placeholder="Describe a problem to solve..."
             className="flex-1 bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-accent/50"
           />
           <button

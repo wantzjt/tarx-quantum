@@ -8,7 +8,7 @@ export default function Home() {
           Quantum Dashboard
         </h1>
         <p className="text-sm text-foreground/50 mt-1">
-          TARX Supercomputer — distributed quantum simulation across mesh nodes
+          Quantum-class computing on sovereign mesh infrastructure
         </p>
       </header>
       <DashboardGrid />

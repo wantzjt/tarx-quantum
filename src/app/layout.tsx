@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TARX Quantum — Human Interaction Layer",
-  description: "Quantum computing interface for the TARX Supercomputer mesh network. Chat-to-quantum, job management, and educational exploration.",
+  title: "TARX Quantum — Quantum-class computing on sovereign mesh",
+  description: "TARX Quantum Engine — optimization, search, classification, and clustering powered by quantum algorithms on distributed mesh infrastructure.",
 };
 
 export default function RootLayout({
